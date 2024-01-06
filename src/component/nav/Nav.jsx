@@ -18,9 +18,6 @@ function Navbar() {
         <Link to="/">Jaz</Link>
       </div>
       <div className={`${navStyles.right} ${isOpen && navStyles.active}`}>
-        {/* <Link to="/" className={navStyles.navLink}>
-          Home
-        </Link> */}
         <Link to="/products" className={navStyles.navLink}>
           Products
         </Link>
