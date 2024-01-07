@@ -7,6 +7,7 @@ import Register from "./pages/register/Register";
 import Products from "./component/Products/Products";
 import ProductDetail from "./component/ProductDetail/ProductDetail";
 import Cart from "./pages/cart/Cart";
+import SellProduct from "./pages/SellProduct/SellProduct";
 import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/products/:productId" element={<ProductDetail />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/sellproduct" element={<SellProduct />} />
       </Routes>
       <Footer />
     </>
