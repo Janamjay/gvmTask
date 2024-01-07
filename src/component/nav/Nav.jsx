@@ -21,6 +21,9 @@ function Navbar() {
         <Link to="/products" className={navStyles.navLink}>
           Products
         </Link>
+        <Link to="/login" className={navStyles.navLink}>
+          Login
+        </Link>
         <Link to="/cart" className={navStyles.navLink}>
           Cart
         </Link>
