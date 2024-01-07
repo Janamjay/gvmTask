@@ -27,7 +27,7 @@ function Navbar() {
   return (
     <nav className={navStyles.main}>
       <div className={navStyles.left}>
-        <Link to="/">Jaz</Link>
+        <Link to="/">MineCart</Link>
       </div>
       <div className={`${navStyles.right} ${isOpen && navStyles.active}`}>
         <Link to="/products" className={navStyles.navLink}>
