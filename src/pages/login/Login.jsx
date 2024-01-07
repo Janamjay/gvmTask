@@ -45,7 +45,7 @@ const Login = () => {
         iziToast.success({
           title: "Success",
           message: `${userFind.name} you are successfully  login`,
-          position: "topCenter",
+          position: "topRight",
         });
         const curUser = JSON.parse(localStorage.getItem("newUser")).filter(
           (user) => user.email === email
@@ -53,6 +53,9 @@ const Login = () => {
         localStorage.setItem("currentUser", JSON.stringify(...curUser));
         localStorage.setItem("login-success", "true");
         nav("/");
+        setTimeout(() => {
+          window.location.reload();
+        }, 500);
         return;
       }
     } else {

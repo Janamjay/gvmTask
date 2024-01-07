@@ -7,9 +7,17 @@ import { HiShoppingCart } from "react-icons/hi";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const isLoggedIn = localStorage.getItem("login-success") === "true";
   const data = useSelector((state) => state.cart);
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+  const handleLogout = () => {
+    localStorage.setItem("login-success", "false");
+    localStorage.removeItem("currentUser");
+
+    window.location.reload();
   };
 
   return (
@@ -21,9 +29,21 @@ function Navbar() {
         <Link to="/products" className={navStyles.navLink}>
           Products
         </Link>
-        <Link to="/login" className={navStyles.navLink}>
-          Login
-        </Link>
+        {isLoggedIn == false ? (
+          <>
+            <Link to="/login" className={navStyles.navLink}>
+              Login
+            </Link>
+            <Link to="/register" className={navStyles.navLink}>
+              Register
+            </Link>
+          </>
+        ) : (
+          <Link onClick={handleLogout} className={navStyles.navLink}>
+            Logout
+          </Link>
+        )}
+
         <Link to="/cart" className={navStyles.navLink}>
           Cart
         </Link>
