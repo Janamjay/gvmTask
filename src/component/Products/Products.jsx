@@ -77,6 +77,10 @@ function Products() {
     filteredProducts.sort((a, b) => b.price - a.price);
   }
 
+  const handleProductClick = (product) => {
+    console.log("Selected Product:", product);
+    nav(`/products/${product.id}`, { state: { product } });
+  };
   return (
     <div className={pro.main}>
       <div className={pro.select}>
@@ -106,7 +110,7 @@ function Products() {
 
       <div className={pro.products}>
         {filteredProducts.map((product) => (
-          <div key={product.id}>
+          <div key={product.id} onClick={() => handleProductClick(product)}>
             <div className={pro.box}>
               <div className={pro.img}>
                 <img src={product.image} alt="product" />
