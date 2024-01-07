@@ -7,6 +7,7 @@ import {
 } from "react-icons/fa";
 
 function Footer() {
+  const currentYear = new Date().getFullYear();
   return (
     <footer className={styles.footer}>
       <div className={styles["footer-top"]}>
@@ -82,7 +83,7 @@ function Footer() {
               <FaPinterest />
             </a>
           </div>
-          <p>&copy; 2023 Shopping-Cart Website. All rights reserved.</p>
+          <p>&copy; {currentYear} Mine-Cart Website. All rights reserved.</p>
         </div>
       </div>
     </footer>

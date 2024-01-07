@@ -71,7 +71,6 @@ const Login = () => {
     <div className="container">
       <form onSubmit={handleSubmit} className="form_main">
         <p className="heading">Login</p>
-
         <div className="inputContainer">
           <svg
             className="inputIcon"

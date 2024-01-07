@@ -59,6 +59,11 @@ function Products() {
 
   let filteredProducts = [...products];
 
+  const localStorageProducts =
+    JSON.parse(localStorage.getItem("products")) || [];
+
+  filteredProducts = [...filteredProducts, ...localStorageProducts];
+
   if (selectedCategory !== "all") {
     filteredProducts = filteredProducts.filter(
       (product) => product.category === selectedCategory
@@ -78,7 +83,6 @@ function Products() {
   }
 
   const handleProductClick = (product) => {
-    console.log("Selected Product:", product);
     nav(`/products/${product.id}`, { state: { product } });
   };
   return (

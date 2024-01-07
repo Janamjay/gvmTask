@@ -5,8 +5,10 @@ import { useSelector } from "react-redux";
 import { RiMenuFoldFill, RiCloseFill } from "react-icons/ri";
 import { HiShoppingCart } from "react-icons/hi";
 import { CgProfile } from "react-icons/cg";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
+  const nav = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const isLoggedIn = localStorage.getItem("login-success") === "true";
   const userData = localStorage.getItem("currentUser");
@@ -20,7 +22,7 @@ function Navbar() {
   const handleLogout = () => {
     localStorage.setItem("login-success", "false");
     localStorage.removeItem("currentUser");
-
+    nav("/");
     window.location.reload();
   };
 
@@ -32,6 +34,14 @@ function Navbar() {
       <div className={`${navStyles.right} ${isOpen && navStyles.active}`}>
         <Link to="/products" className={navStyles.navLink}>
           Products
+        </Link>
+        {isLoggedIn == true && (
+          <Link to="/sellproduct" className={navStyles.navLink}>
+            Sell Product
+          </Link>
+        )}
+        <Link to="/cart" className={navStyles.navLink}>
+          Cart
         </Link>
         {isLoggedIn == false ? (
           <>
@@ -47,9 +57,6 @@ function Navbar() {
             Logout
           </Link>
         )}
-        <Link to="/cart" className={navStyles.navLink}>
-          Cart
-        </Link>
         {isLoggedIn == true && (
           <Link className={navStyles.navLink}>
             <div className={navStyles.navProfile}>
